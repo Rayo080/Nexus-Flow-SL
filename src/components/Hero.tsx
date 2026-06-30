@@ -14,10 +14,10 @@ import { Navbar } from "@/components/Navbar";
 import { AIWireframe } from "@/components/AIWireframe";
 import { ParticleField } from "@/components/ParticleField";
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
-} as const;
+};
 
 const stats = [
   { value: "250+", label: "Proyectos Automatizados" },
