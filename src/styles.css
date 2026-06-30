@@ -132,6 +132,14 @@
   0%, 100% { opacity: 0.6; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.15); }
 }
+@keyframes pulse-glow-intense {
+  0%, 100% { opacity: 0.8; transform: scale(1); box-shadow: 0 0 15px oklch(0.78 0.13 85 / 0.6); }
+  50% { opacity: 1; transform: scale(1.25); box-shadow: 0 0 35px oklch(0.78 0.13 85 / 0.9); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 @keyframes dash-flow {
   to { stroke-dashoffset: -200; }
 }
@@ -144,4 +152,5 @@
 .animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
 .animate-spin-slow { animation: spin-slow 40s linear infinite; }
 .animate-pulse-glow { animation: pulse-glow 2.4s ease-in-out infinite; }
+.animate-pulse-glow-intense { animation: pulse-glow-intense 2s ease-in-out infinite; }
 .animate-dash-flow { animation: dash-flow 6s linear infinite; }

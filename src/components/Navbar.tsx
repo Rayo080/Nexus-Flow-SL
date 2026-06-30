@@ -34,12 +34,31 @@ export function Navbar() {
     >
       <nav className="mx-auto max-w-7xl px-6 lg:px-10 h-16 flex items-center justify-between">
         <a href="#inicio" className="flex items-center gap-2.5 group">
-          <span className="relative inline-flex h-7 w-7 items-center justify-center rounded-md border border-gold/40 bg-gold/10">
-            <span className="absolute inset-0 rounded-md bg-gold/20 blur-md opacity-70 group-hover:opacity-100 transition" />
+          <span
+            className="relative inline-flex h-8 w-8 items-center justify-center rounded-lg border transition-all duration-300"
+            style={{
+              borderColor: "oklch(0.78 0.13 85 / 0.6)",
+              background: "linear-gradient(135deg, oklch(0.78 0.13 85 / 0.25), oklch(0.88 0.09 88 / 0.15))",
+              boxShadow: "0 0 30px oklch(0.78 0.13 85 / 0.4), inset 0 0 20px oklch(0.88 0.09 88 / 0.2), inset -1px -1px 0 oklch(1 0 0 / 0.1)",
+            }}
+          >
+            <span className="absolute inset-0 rounded-lg bg-gold/30 blur-md opacity-0 group-hover:opacity-80 transition-all duration-300" />
             <span className="relative text-gold text-xs font-bold tracking-tight">AS</span>
           </span>
           <span className="font-semibold tracking-tight text-foreground/90">
-            Automata <span className="text-gold-gradient">Systems</span>
+            Automata{" "}
+            <span
+              style={{
+                backgroundImage: "linear-gradient(135deg, oklch(0.95 0.06 90), oklch(0.78 0.13 85))",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                textShadow: "0 0 30px oklch(0.78 0.13 85 / 0.3)",
+                filter: "drop-shadow(0 0 15px oklch(0.78 0.13 85 / 0.4))",
+              }}
+            >
+              Systems
+            </span>
           </span>
         </a>
 

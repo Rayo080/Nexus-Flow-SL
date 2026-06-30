@@ -1,248 +1,162 @@
-import { motion, useMotionValue, useSpring, useTransform, type Variants } from "framer-motion";
-import { useEffect } from "react";
-import {
-  ArrowRight,
-  Cpu,
-  Workflow,
-  Database,
-  Plug,
-  Sparkles,
-  Gauge,
-  Search,
-} from "lucide-react";
-import { Navbar } from "@/components/Navbar";
+import { motion } from "framer-motion";
 import { AIWireframe } from "@/components/AIWireframe";
 import { ParticleField } from "@/components/ParticleField";
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
-};
-
 const stats = [
   { value: "250+", label: "Proyectos Automatizados" },
-  { value: "50+", label: "Webs Premium Lanzadas" },
-  { value: "35%", label: "Incremento Promedio en Productividad" },
-  { value: "4.9/5", label: "Satisfacción del Cliente" },
+  { value: "50+", label: "Webs Premier Lanzadas" },
+  { value: "35%", label: "Eficiencia Promedio Ganada" },
+  { value: "4.9/5", label: "Calificación de Cliente" },
 ];
 
 export function Hero() {
-  // Mouse parallax
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const sx = useSpring(mx, { stiffness: 60, damping: 20 });
-  const sy = useSpring(my, { stiffness: 60, damping: 20 });
-  const tx = useTransform(sx, (v) => v * 18);
-  const ty = useTransform(sy, (v) => v * 18);
-  const txReverse = useTransform(sx, (v) => v * -12);
-  const tyReverse = useTransform(sy, (v) => v * -12);
-
-  useEffect(() => {
-    const onMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 2;
-      const y = (e.clientY / window.innerHeight - 0.5) * 2;
-      mx.set(x);
-      my.set(y);
-    };
-    window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
-  }, [mx, my]);
-
   return (
     <section
       id="inicio"
-      className="relative isolate overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32"
+      className="relative flex min-h-screen w-full flex-col overflow-hidden bg-[#030712] text-white"
     >
-      {/* Background layers */}
-      <div className="absolute inset-0 circuit-bg opacity-50" />
-      <ParticleField />
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="pointer-events-none absolute inset-0"
         style={{
-          background:
-            "radial-gradient(ellipse 50% 40% at 50% 40%, oklch(0.78 0.13 85 / 0.10), transparent 70%)",
+          background: "radial-gradient(circle at 50% 45%, #0a1b3c 0%, #051025 45%, #030816 80%)",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: "radial-gradient(circle at 50% 50%, rgba(241, 196, 83, 0.16), transparent 60%)",
         }}
       />
 
-      <Navbar />
+      <ParticleField />
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
-        {/* Wireframe + floating cards row */}
+      <header className="relative z-30 mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-7 md:px-12">
+        <div className="flex items-center gap-3.5">
+          <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-[0_0_8px_rgba(233,195,84,0.2)]">
+            <path d="M50 15L20 80H38L50 52L62 80H80L50 15Z" fill="url(#logoGrad)" />
+            <path d="M50 35L35 70H45L50 58L55 70H65L50 35Z" fill="#040b19" />
+            <path d="M50 10L85 85H73L50 32L27 85H15L50 10Z" stroke="#ecd074" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <defs>
+              <linearGradient id="logoGrad" x1="50" y1="15" x2="50" y2="80" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#fff0b3" />
+                <stop offset="100%" stopColor="#e5c158" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <div className="flex flex-col">
+            <span className="text-xs font-light tracking-[0.4em] text-white">NEXUS</span>
+            <span className="-mt-0.5 text-[9px] font-medium tracking-[0.25em] text-[#ecd074]">FLOW</span>
+          </div>
+        </div>
+
+        <nav className="hidden items-center gap-10 text-[11px] font-normal tracking-[0.25em] text-gray-400 md:flex">
+          <a href="#" className="border-b-2 border-[#e5c158]/80 pb-1.5 font-medium text-white">INICIO</a>
+          <a href="#" className="transition-all duration-300 hover:text-white">AUTOMATIZACIONES</a>
+          <a href="#" className="transition-all duration-300 hover:text-white">WEB PREMIER</a>
+          <a href="#" className="transition-all duration-300 hover:text-white">PORTAFOLIO</a>
+          <a href="#" className="transition-all duration-300 hover:text-white">BLOG</a>
+        </nav>
+
+        <a href="#" className="rounded-full border border-white/15 bg-white/[0.03] px-8 py-2.5 text-[11px] tracking-[0.25em] text-white transition-all duration-300 hover:border-[#e5c158] hover:bg-[#e5c158]/5">
+          CONTACTO
+        </a>
+      </header>
+
+      <main className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 pb-8">
         <motion.div
-          initial="hidden"
-          animate="show"
-          variants={fadeUp}
-          className="relative grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center gap-6 lg:gap-10 mb-16 md:mb-24"
+          initial={{ opacity: 0, scale: 0.94 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mb-6 flex w-full justify-center"
         >
-          {/* Left floating card */}
-          <motion.div
-            style={{ x: tx, y: ty }}
-            className="lg:justify-self-end max-w-xs w-full animate-float-slow"
-          >
-            <FloatingCard
-              title="AI Integrations"
-              tags={["APIs", "CRM", "Workflows"]}
-              icon={<Cpu className="w-4 h-4 text-gold" />}
-              align="right"
-            />
-          </motion.div>
-
-          {/* Central wireframe */}
-          <motion.div
-            style={{ x: useTransform(sx, (v) => v * -8), y: useTransform(sy, (v) => v * -8) }}
-            className="relative"
-          >
-            <AIWireframe />
-          </motion.div>
-
-          {/* Right floating card */}
-          <motion.div
-            style={{ x: txReverse, y: tyReverse }}
-            className="lg:justify-self-start max-w-xs w-full animate-float-slow"
-            transition={{ delay: 1 }}
-          >
-            <FloatingCard
-              title="Premium Web Design"
-              tags={["Fast", "Modern", "SEO Optimized"]}
-              icon={<Sparkles className="w-4 h-4 text-gold" />}
-              align="left"
-            />
-          </motion.div>
+          <AIWireframe />
         </motion.div>
 
-        {/* Heading */}
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp}
-          className="text-center max-w-5xl mx-auto"
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mx-auto max-w-5xl px-4 text-center text-base font-light uppercase tracking-[0.35em] text-gray-200 md:text-lg"
         >
-          <p className="text-xs md:text-sm tracking-[0.35em] uppercase text-gold/80 mb-6">
-            AI Automation Agency
-          </p>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95]">
-            <span className="text-gold-gradient">AUTOMATA</span>
-            <br />
-            <span className="text-foreground">SYSTEMS</span>
-          </h1>
-
-          <div className="mx-auto mt-8 mb-6 h-px w-32 bg-gradient-to-r from-transparent via-gold to-transparent" />
-
-          <p className="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto font-light">
-            Automatizaciones Inteligentes y Web Premium para Empresas.
-          </p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="mt-12 flex justify-center"
+          NEXUS{" "}
+          <span
+            className="font-medium"
+            style={{
+              color: "#ecd074",
+              textShadow: "0 0 10px rgba(236, 208, 116, 0.2)",
+            }}
           >
-            <a
-              href="#contacto"
-              className="group relative inline-flex items-center gap-3 px-9 py-4 rounded-full bg-gradient-to-b from-[oklch(0.88_0.09_88)] to-[oklch(0.72_0.14_80)] text-[oklch(0.16_0.03_255)] font-semibold text-sm tracking-wide uppercase shadow-[0_10px_40px_-10px_oklch(0.78_0.13_85/0.6)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_20px_60px_-10px_oklch(0.78_0.13_85/0.8)]"
-            >
-              <span className="absolute inset-0 rounded-full bg-gold/40 blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-500 -z-10" />
-              Empezar mi proyecto
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </a>
-          </motion.div>
-        </motion.div>
+            FLOW
+          </span>{" "}
+          <span className="mx-3 text-gray-600">|</span>
+          <span className="inline-block text-xs font-light normal-case tracking-[0.18em] text-gray-400 md:text-sm">
+            Automatizaciones y Web Premier
+          </span>
+        </motion.h2>
 
-        {/* Stats */}
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } },
-          }}
-          className="mt-24 md:mt-32 grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 glass-card overflow-hidden"
+        <motion.button
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="group relative mt-8 overflow-hidden rounded-full bg-[#040b19] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_45px_rgba(236,208,116,0.25)]"
         >
-          {stats.map((s) => (
+          <div className="rounded-full bg-gradient-to-r from-[#e5c158] via-[#fff5d6] to-[#e5c158] p-[1.5px]">
+            <div className="flex h-full w-full items-center justify-between gap-10 rounded-full bg-gradient-to-r from-[#0b1220] via-[#161f33] to-[#0b1220] py-3.5 pl-9 pr-6">
+              <span className="text-[11px] font-medium tracking-[0.32em] text-[#ecd074] transition-colors duration-300 group-hover:text-white">
+                EMPEZAR MI PROYECTO
+              </span>
+
+              <div className="flex items-center border-l border-white/10 pl-4 opacity-85">
+                <svg width="46" height="24" viewBox="0 0 46 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ecd074" strokeWidth="1.25" strokeLinecap="round">
+                  <path d="M 0 12 C 6 12, 8 2, 14 2 L 20 2" />
+                  <circle cx="20" cy="2" r="1.5" fill="#ecd074" stroke="#0b1220" strokeWidth="0.5" />
+
+                  <path d="M 0 12 C 5 12, 7 6, 13 6 L 26 6" />
+                  <circle cx="26" cy="6" r="1.5" fill="#ecd074" stroke="#0b1220" strokeWidth="0.5" />
+
+                  <path d="M 0 12 L 35 12" />
+                  <circle cx="35" cy="12" r="1.5" fill="#ecd074" stroke="#0b1220" strokeWidth="0.5" />
+
+                  <path d="M 0 12 C 5 12, 7 18, 13 18 L 29 18" />
+                  <circle cx="29" cy="18" r="1.5" fill="#ecd074" stroke="#0b1220" strokeWidth="0.5" />
+
+                  <path d="M 0 12 C 6 12, 8 22, 14 22 L 22 22" />
+                  <circle cx="22" cy="22" r="1.5" fill="#ecd074" stroke="#0b1220" strokeWidth="0.5" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </motion.button>
+      </main>
+
+      <footer
+        className="relative z-30 w-full border-t border-white/[0.04] bg-[#02050d]/80 backdrop-blur-md"
+      >
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-4 py-8 text-center md:grid-cols-4">
+          {stats.map((s, idx) => (
             <motion.div
               key={s.label}
-              variants={fadeUp}
-              className="p-8 md:p-10 text-center bg-[oklch(0.18_0.03_255/0.4)] hover:bg-[oklch(0.22_0.04_255/0.6)] transition-colors"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 + idx * 0.1 }}
+              className="flex flex-col justify-center px-4"
             >
-              <div className="text-4xl md:text-5xl font-bold text-gold-gradient tracking-tight">
+              <span
+                className="mb-0.5 text-2xl font-light tracking-wider md:text-3xl"
+                style={{
+                  color: "#ecd074",
+                  textShadow: "0 2px 8px rgba(236, 208, 116, 0.18)",
+                }}
+              >
                 {s.value}
-              </div>
-              <div className="mt-3 text-xs md:text-sm text-foreground/60 tracking-wide">
+              </span>
+              <span className="text-[9.5px] font-medium uppercase tracking-[0.2em] text-gray-500 md:text-xs">
                 {s.label}
-              </div>
+              </span>
             </motion.div>
           ))}
-        </motion.div>
-      </div>
+        </div>
+      </footer>
     </section>
-  );
-}
-
-function FloatingCard({
-  title,
-  tags,
-  icon,
-  align,
-}: {
-  title: string;
-  tags: string[];
-  icon: React.ReactNode;
-  align: "left" | "right";
-}) {
-  const tagIcons: Record<string, React.ReactNode> = {
-    APIs: <Plug className="w-3 h-3" />,
-    CRM: <Database className="w-3 h-3" />,
-    Workflows: <Workflow className="w-3 h-3" />,
-    Fast: <Gauge className="w-3 h-3" />,
-    Modern: <Sparkles className="w-3 h-3" />,
-    "SEO Optimized": <Search className="w-3 h-3" />,
-  };
-
-  return (
-    <div
-      className={`glass-card relative p-5 ${
-        align === "right" ? "lg:text-right" : "lg:text-left"
-      }`}
-      style={{
-        boxShadow:
-          "0 20px 60px -20px oklch(0 0 0 / 0.5), inset 0 1px 0 oklch(1 0 0 / 0.06)",
-      }}
-    >
-      <div
-        className={`flex items-center gap-2 mb-4 ${
-          align === "right" ? "lg:justify-end" : ""
-        }`}
-      >
-        <span className="inline-flex items-center justify-center w-7 h-7 rounded-md bg-gold/10 border border-gold/30">
-          {icon}
-        </span>
-        <h3 className="text-sm font-semibold tracking-tight text-foreground">{title}</h3>
-      </div>
-      <div
-        className={`flex flex-wrap gap-2 ${
-          align === "right" ? "lg:justify-end" : ""
-        }`}
-      >
-        {tags.map((t) => (
-          <span
-            key={t}
-            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] text-foreground/75"
-          >
-            {tagIcons[t]}
-            {t}
-          </span>
-        ))}
-      </div>
-      {/* connector dot */}
-      <span
-        className={`hidden lg:block absolute top-1/2 ${
-          align === "right" ? "-right-2" : "-left-2"
-        } -translate-y-1/2 w-2 h-2 rounded-full bg-gold animate-pulse-glow`}
-      />
-    </div>
   );
 }

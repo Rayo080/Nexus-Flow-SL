@@ -2,150 +2,122 @@ import { motion } from "framer-motion";
 
 export function AIWireframe() {
   return (
-    <div className="relative flex items-center justify-center w-full h-[420px] md:h-[520px]">
-      {/* Radial glow backdrop */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(circle at 50% 50%, oklch(0.78 0.13 85 / 0.25), transparent 55%)",
-        }}
-      />
+    <div className="relative flex h-[440px] w-full max-w-5xl items-center justify-center overflow-hidden">
+      <svg width="100%" height="100%" viewBox="0 0 1000 460" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ filter: "drop-shadow(0px 0px 12px rgba(233, 195, 84, 0.45))" }}>
+        <g opacity="0.25" stroke="#ecd074" strokeWidth="1.2" strokeLinecap="round">
+          <path d="M 180 170 L 320 170 L 360 210 L 410 210" />
+          <circle cx="180" cy="170" r="2.5" fill="#ecd074" />
+          <path d="M 150 200 L 340 200 L 375 235 L 405 235" />
+          <circle cx="150" cy="200" r="2.5" fill="#ecd074" />
+          <path d="M 140 230 L 330 230 L 365 200 L 415 200" />
+          <circle cx="140" cy="230" r="2.5" fill="#ecd074" />
+          <path d="M 190 260 L 310 260 L 350 220 L 400 220" />
+          <circle cx="190" cy="260" r="2.5" fill="#ecd074" />
 
-      {/* Outer rotating ring */}
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-        className="absolute"
-      >
-        <svg width="460" height="460" viewBox="0 0 460 460" className="opacity-60">
-          <defs>
-            <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="oklch(0.88 0.09 88)" stopOpacity="0.9" />
-              <stop offset="100%" stopColor="oklch(0.78 0.13 85)" stopOpacity="0.2" />
-            </linearGradient>
-          </defs>
-          <circle
-            cx="230"
-            cy="230"
-            r="220"
-            fill="none"
-            stroke="url(#ringGrad)"
-            strokeWidth="0.8"
-            strokeDasharray="2 8"
-          />
-        </svg>
-      </motion.div>
+          <path d="M 820 170 L 680 170 L 640 210 L 590 210" />
+          <circle cx="820" cy="170" r="2.5" fill="#ecd074" />
+          <path d="M 850 200 L 660 200 L 625 235 L 595 235" />
+          <circle cx="850" cy="200" r="2.5" fill="#ecd074" />
+          <path d="M 860 230 L 670 230 L 635 200 L 585 200" />
+          <circle cx="860" cy="230" r="2.5" fill="#ecd074" />
+          <path d="M 810 260 L 690 260 L 650 220 L 600 220" />
+          <circle cx="810" cy="260" r="2.5" fill="#ecd074" />
+        </g>
 
-      {/* Counter-rotating ring */}
-      <motion.div
-        animate={{ rotate: -360 }}
-        transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
-        className="absolute"
-      >
-        <svg width="360" height="360" viewBox="0 0 360 360" className="opacity-40">
-          <circle
-            cx="180"
-            cy="180"
-            r="170"
-            fill="none"
-            stroke="oklch(0.88 0.09 88)"
-            strokeWidth="0.6"
-          />
-        </svg>
-      </motion.div>
+        <g transform="translate(500, 220)">
+          <polygon points="0,-120 104,-30 0,0" fill="rgba(236, 208, 116, 0.03)" />
+          <polygon points="0,-120 -104,-30 0,0" fill="rgba(236, 208, 116, 0.03)" />
+          <polygon points="0,120 104,30 0,0" fill="rgba(236, 208, 116, 0.02)" />
+          <polygon points="0,120 -104,30 0,0" fill="rgba(236, 208, 116, 0.02)" />
 
-      {/* Floating polyhedron */}
-      <motion.div
-        animate={{ y: [-10, 10, -10], rotateY: [0, 360] }}
-        transition={{
-          y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-          rotateY: { duration: 24, repeat: Infinity, ease: "linear" },
-        }}
-        className="relative"
-        style={{ transformStyle: "preserve-3d", perspective: "1000px" }}
-      >
-        <svg
-          width="280"
-          height="280"
-          viewBox="0 0 280 280"
-          className="drop-shadow-[0_0_40px_oklch(0.78_0.13_85/0.5)]"
-        >
-          <defs>
-            <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="oklch(0.92 0.08 90)" />
-              <stop offset="100%" stopColor="oklch(0.7 0.14 80)" />
-            </linearGradient>
-            <radialGradient id="nodeGrad" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="oklch(0.95 0.06 90)" />
-              <stop offset="100%" stopColor="oklch(0.78 0.13 85 / 0)" />
-            </radialGradient>
-          </defs>
+          <polygon points="0,0 104,-30 104,30" fill="url(#crystalFace)" opacity="0.88" />
 
-          {/* Icosahedron-like wireframe */}
-          <g
-            stroke="url(#lineGrad)"
-            strokeWidth="0.9"
-            fill="none"
-            strokeLinejoin="round"
-          >
-            <polygon points="140,30 240,90 240,190 140,250 40,190 40,90" />
-            <polygon points="140,70 210,110 210,170 140,210 70,170 70,110" />
-            <line x1="140" y1="30" x2="140" y2="250" />
-            <line x1="40" y1="90" x2="240" y2="190" />
-            <line x1="240" y1="90" x2="40" y2="190" />
-            <line x1="140" y1="30" x2="70" y2="170" />
-            <line x1="140" y1="30" x2="210" y2="170" />
-            <line x1="140" y1="250" x2="70" y2="110" />
-            <line x1="140" y1="250" x2="210" y2="110" />
-            <line x1="40" y1="90" x2="210" y2="170" />
-            <line x1="240" y1="90" x2="70" y2="170" />
+          <g stroke="#ecd074" strokeWidth="1.3" opacity="0.8">
+            <polygon points="0,-120 104,-30 104,30 0,120 -104,30 -104,-30" fill="none" />
+
+            <line x1="0" y1="-120" x2="0" y2="120" />
+            <line x1="-104" y1="-30" x2="104" y2="-30" />
+            <line x1="-104" y1="30" x2="104" y2="30" />
+
+            <line x1="0" y1="-120" x2="104" y2="30" />
+            <line x1="0" y1="-120" x2="-104" y2="30" />
+            <line x1="0" y1="120" x2="104" y2="-30" />
+            <line x1="0" y1="120" x2="-104" y2="-30" />
+
+            <line x1="0" y1="0" x2="0" y2="-120" />
+            <line x1="0" y1="0" x2="0" y2="120" />
+            <line x1="0" y1="0" x2="104" y2="-30" />
+            <line x1="0" y1="0" x2="104" y2="30" />
+            <line x1="0" y1="0" x2="-104" y2="-30" />
+            <line x1="0" y1="0" x2="-104" y2="30" />
+
+            <polygon points="0,-40 35,-10 35,10 0,40 -35,10 -35,-10" fill="none" stroke="#ecd074" strokeWidth="0.8" opacity="0.35" />
           </g>
 
-          {/* Nodes */}
-          {[
-            [140, 30],
-            [240, 90],
-            [240, 190],
-            [140, 250],
-            [40, 190],
-            [40, 90],
-            [140, 140],
-          ].map(([cx, cy], i) => (
-            <g key={i}>
-              <circle cx={cx} cy={cy} r="10" fill="url(#nodeGrad)" />
-              <circle
-                cx={cx}
-                cy={cy}
-                r="2.5"
-                fill="oklch(0.95 0.06 90)"
-                className="animate-pulse-glow"
-                style={{ animationDelay: `${i * 0.25}s`, transformOrigin: `${cx}px ${cy}px` }}
-              />
-            </g>
-          ))}
-        </svg>
-      </motion.div>
+          <circle cx="0" cy="-120" r="2.5" fill="#fff" />
+          <circle cx="104" cy="-30" r="2.5" fill="#fff" />
+          <circle cx="104" cy="30" r="2.5" fill="#fff" />
+          <circle cx="0" cy="120" r="2.5" fill="#fff" />
+          <circle cx="-104" cy="30" r="2.5" fill="#fff" />
+          <circle cx="-104" cy="-30" r="2.5" fill="#fff" />
+          <circle cx="0" cy="0" r="2" fill="#fff" />
 
-      {/* Animated connection lines extending out */}
-      <svg
-        className="absolute inset-0 w-full h-full pointer-events-none"
-        viewBox="0 0 800 520"
-        preserveAspectRatio="none"
-      >
-        <g
-          stroke="oklch(0.78 0.13 85 / 0.4)"
-          strokeWidth="1"
-          fill="none"
-          strokeDasharray="4 6"
-          className="animate-dash-flow"
-        >
-          <path d="M 400 260 Q 250 240 80 200" />
-          <path d="M 400 260 Q 250 280 80 320" />
-          <path d="M 400 260 Q 550 240 720 200" />
-          <path d="M 400 260 Q 550 280 720 320" />
+          <defs>
+            <linearGradient id="crystalFace" x1="30" y1="-15" x2="104" y2="20" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#fff4cc" />
+              <stop offset="50%" stopColor="#eec961" />
+              <stop offset="100%" stopColor="#967724" />
+            </linearGradient>
+          </defs>
         </g>
       </svg>
+
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.6 }}
+        className="absolute left-[4%] top-[33%] z-10 max-w-[245px] rounded-xl p-5 text-left transition-all duration-300 hover:scale-[1.02]"
+        style={{
+          background: "rgba(6, 15, 36, 0.7)",
+          backdropFilter: "blur(20px)",
+          border: "1px solid rgba(236, 208, 116, 0.18)",
+          boxShadow: "0 25px 55px rgba(0, 0, 0, 0.75)",
+        }}
+      >
+        <h4 className="mb-2 flex items-center gap-2 text-[12px] font-medium tracking-[0.2em] text-white">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#e5c158] shadow-[0_0_8px_#ecd074]" />
+          Integraciones IA
+        </h4>
+        <p className="text-[11px] font-light leading-relaxed text-gray-400">
+          La inteligencia artificial automatiza arquitecturas y sistemas de forma integral.
+        </p>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+        className="absolute right-[4%] top-[40%] z-10 max-w-[245px] rounded-xl p-5 text-left transition-all duration-300 hover:scale-[1.02]"
+        style={{
+          background: "rgba(6, 15, 36, 0.7)",
+          backdropFilter: "blur(20px)",
+          border: "1px solid rgba(236, 208, 116, 0.18)",
+          boxShadow: "0 25px 55px rgba(0, 0, 0, 0.75)",
+        }}
+      >
+        <h4 className="mb-2 flex items-center gap-2 text-[12px] font-medium tracking-[0.2em] text-white">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#e5c158] shadow-[0_0_8px_#ecd074]" />
+          Diseño web a medida
+        </h4>
+        <p className="text-[11px] font-light leading-relaxed text-gray-400">
+          Diseños web a medida pensados para experiencias de marca premium y modernas.
+        </p>
+        <div className="absolute -left-3.5 -top-3 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
+          <svg width="17" height="21" viewBox="0 0 14 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1V16L5.2 12.2L12.5 12.2L1 1Z" fill="white" stroke="#111" strokeWidth="1.5" strokeLinejoin="miter" />
+          </svg>
+        </div>
+      </motion.div>
     </div>
   );
 }
