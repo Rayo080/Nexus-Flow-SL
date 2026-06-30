@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, type Variants } from "framer-motion";
 import { useEffect } from "react";
 import {
   ArrowRight,
