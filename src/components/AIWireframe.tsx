@@ -1,10 +1,16 @@
-import { motion } from "framer-motion";
-
 export function AIWireframe() {
   return (
-    <div className="relative flex h-[440px] w-full max-w-5xl items-center justify-center overflow-hidden">
-      <svg width="100%" height="100%" viewBox="0 0 1000 460" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ filter: "drop-shadow(0px 0px 12px rgba(233, 195, 84, 0.45))" }}>
-        <g opacity="0.25" stroke="#ecd074" strokeWidth="1.2" strokeLinecap="round">
+    <div className="flex w-full items-center justify-center">
+      <svg
+        width="100%"
+        height="100%"
+        viewBox="0 0 1000 440"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-auto w-full max-w-[320px] md:h-full md:max-w-none"
+        style={{ filter: "drop-shadow(0px 0px 12px rgba(233, 195, 84, 0.45))" }}
+      >
+        <g opacity="0.25" stroke="#ecd074" strokeWidth="1.2" strokeLinecap="round" className="hidden md:block">
           <path d="M 180 170 L 320 170 L 360 210 L 410 210" />
           <circle cx="180" cy="170" r="2.5" fill="#ecd074" />
           <path d="M 150 200 L 340 200 L 375 235 L 405 235" />
@@ -34,24 +40,19 @@ export function AIWireframe() {
 
           <g stroke="#ecd074" strokeWidth="1.3" opacity="0.8">
             <polygon points="0,-120 104,-30 104,30 0,120 -104,30 -104,-30" fill="none" />
-
             <line x1="0" y1="-120" x2="0" y2="120" />
             <line x1="-104" y1="-30" x2="104" y2="-30" />
             <line x1="-104" y1="30" x2="104" y2="30" />
-
             <line x1="0" y1="-120" x2="104" y2="30" />
             <line x1="0" y1="-120" x2="-104" y2="30" />
             <line x1="0" y1="120" x2="104" y2="-30" />
             <line x1="0" y1="120" x2="-104" y2="-30" />
-
             <line x1="0" y1="0" x2="0" y2="-120" />
             <line x1="0" y1="0" x2="0" y2="120" />
             <line x1="0" y1="0" x2="104" y2="-30" />
             <line x1="0" y1="0" x2="104" y2="30" />
             <line x1="0" y1="0" x2="-104" y2="-30" />
             <line x1="0" y1="0" x2="-104" y2="30" />
-
-            <polygon points="0,-40 35,-10 35,10 0,40 -35,10 -35,-10" fill="none" stroke="#ecd074" strokeWidth="0.8" opacity="0.35" />
           </g>
 
           <circle cx="0" cy="-120" r="2.5" fill="#fff" />
@@ -71,53 +72,6 @@ export function AIWireframe() {
           </defs>
         </g>
       </svg>
-
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.6 }}
-        className="absolute left-[4%] top-[33%] z-10 max-w-[245px] rounded-xl p-5 text-left transition-all duration-300 hover:scale-[1.02]"
-        style={{
-          background: "rgba(6, 15, 36, 0.7)",
-          backdropFilter: "blur(20px)",
-          border: "1px solid rgba(236, 208, 116, 0.18)",
-          boxShadow: "0 25px 55px rgba(0, 0, 0, 0.75)",
-        }}
-      >
-        <h4 className="mb-2 flex items-center gap-2 text-[12px] font-medium tracking-[0.2em] text-white">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#e5c158] shadow-[0_0_8px_#ecd074]" />
-          Integraciones IA
-        </h4>
-        <p className="text-[11px] font-light leading-relaxed text-gray-400">
-          La inteligencia artificial automatiza arquitecturas y sistemas de forma integral.
-        </p>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.6 }}
-        className="absolute right-[4%] top-[40%] z-10 max-w-[245px] rounded-xl p-5 text-left transition-all duration-300 hover:scale-[1.02]"
-        style={{
-          background: "rgba(6, 15, 36, 0.7)",
-          backdropFilter: "blur(20px)",
-          border: "1px solid rgba(236, 208, 116, 0.18)",
-          boxShadow: "0 25px 55px rgba(0, 0, 0, 0.75)",
-        }}
-      >
-        <h4 className="mb-2 flex items-center gap-2 text-[12px] font-medium tracking-[0.2em] text-white">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#e5c158] shadow-[0_0_8px_#ecd074]" />
-          Diseño web a medida
-        </h4>
-        <p className="text-[11px] font-light leading-relaxed text-gray-400">
-          Diseños web a medida pensados para experiencias de marca premium y modernas.
-        </p>
-        <div className="absolute -left-3.5 -top-3 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
-          <svg width="17" height="21" viewBox="0 0 14 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1V16L5.2 12.2L12.5 12.2L1 1Z" fill="white" stroke="#111" strokeWidth="1.5" strokeLinejoin="miter" />
-          </svg>
-        </div>
-      </motion.div>
     </div>
   );
 }
