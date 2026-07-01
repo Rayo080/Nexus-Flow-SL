@@ -117,6 +117,13 @@ function EmpezarProyectoPage() {
           style={{ background: "#060b13", padding: 20 }}
         >
           <div
+            className="mb-4 rounded-lg border border-[#bfa054]/20 bg-[#0b121b] px-6 py-4 text-center"
+            style={{ boxShadow: "0 8px 30px rgba(11,18,27,0.6)" }}
+          >
+            <p className="text-sm font-semibold text-[#bfa054]">Selecciona la primera opción</p>
+          </div>
+
+          <div
             className="calendly-inline-widget h-full"
             data-url="https://calendly.com/nexus-flow?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=09101d&text_color=ffffff&primary_color=bfa054"
             style={{ minWidth: 320, width: "100%", height: "100%" }}
