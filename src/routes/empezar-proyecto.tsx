@@ -120,7 +120,7 @@ function EmpezarProyectoPage() {
             className="mb-4 rounded-lg border border-[#bfa054]/20 bg-[#0b121b] px-6 py-4 text-center"
             style={{ boxShadow: "0 8px 30px rgba(11,18,27,0.6)" }}
           >
-            <p className="text-sm font-semibold text-[#bfa054]">Selecciona la primera opción</p>
+            <p className="text-sm font-semibold text-[#bfa054]">Selecciona la Consultoría</p>
           </div>
 
           <div
