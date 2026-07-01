@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar Proyecto | Nexus Flow</title>
+    <style>
+        body {
+            background-color: #050a12;
+            color: #ffffff;
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .container-quiz {
+            width: min(100%, 640px);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(191, 160, 84, 0.18);
+            padding: 40px;
+            border-radius: 22px;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+            position: relative;
+        }
+
+        .barra-progreso {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 4px;
+            width: 33%;
+            background: linear-gradient(90deg, #ffd96d, #bfa054);
+            border-radius: 20px 20px 0 0;
+            transition: width 0.3s ease;
+        }
+
+        h2 {
+            color: #bfa054;
+            font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+            margin: 0 0 10px 0;
+            letter-spacing: 0.3px;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 1rem;
+            margin: 0 0 25px 0;
+            line-height: 1.8;
+        }
+
+        .opciones-grid {
+            display: grid;
+            gap: 14px;
+        }
+
+        .opcion-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 18px 20px;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: transform 0.25s ease, border-color 0.3s ease, background 0.3s ease;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .opcion-card:hover,
+        .opcion-card.seleccionada {
+            border-color: #bfa054;
+            background: rgba(191, 160, 84, 0.06);
+            transform: translateX(6px);
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 16px 18px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
+            color: #ffffff;
+            font-size: 1rem;
+            margin-top: 12px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #bfa054;
+        }
+
+        .btn-siguiente {
+            background: #bfa054;
+            color: #050a12;
+            border: none;
+            padding: 14px 34px;
+            border-radius: 999px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 30px;
+            float: right;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-siguiente:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 30px rgba(191, 160, 84, 0.25);
+        }
+
+        .paso {
+            display: none;
+        }
+
+        .paso.activo {
+            display: block;
+            animation: fadeIn 0.35s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 640px) {
+            .container-quiz {
+                padding: 30px 20px;
+                border-radius: 18px;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .btn-siguiente {
+                width: 100%;
+                float: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-quiz">
+        <div class="barra-progreso" id="progreso-quiz"></div>
+
+        <div class="paso activo" id="paso1">
+            <h2>¿Qué solución prioritaria busca tu empresa?</h2>
+            <p>Selecciona la opción que mejor se ajuste a tus objetivos actuales.</p>
+            <div class="opciones-grid">
+                <div class="opcion-card" onclick="seleccionarOpcion(1, 'Automatizaciones de Procesos / IA')">Automatizaciones de Procesos & Agentes de IA</div>
+                <div class="opcion-card" onclick="seleccionarOpcion(1, 'Desarrollo Web Premier')">Desarrollo Web Premier (UI/UX de Alta Conversión)</div>
+                <div class="opcion-card" onclick="seleccionarOpcion(1, 'Ecosistema Completo')">Ecosistema Tecnológico Integral (Web + IA)</div>
+            </div>
+        </div>
+
+        <div class="paso" id="paso2">
+            <h2>¿Qué presupuesto estimado tenéis asignado?</h2>
+            <p>Nos ayuda a medir el alcance del desarrollo e integraciones.</p>
+            <div class="opciones-grid">
+                <div class="opcion-card" onclick="seleccionarOpcion(2, '1.500€ - 3.000€')">1.500€ — 3.000€</div>
+                <div class="opcion-card" onclick="seleccionarOpcion(2, '3.000€ - 7.000€')">3.000€ — 7.000€</div>
+                <div class="opcion-card" onclick="seleccionarOpcion(2, '+7.000€')">Más de 7.000€ / Escala Empresarial</div>
+            </div>
+        </div>
+
+        <div class="paso" id="paso3">
+            <h2>¿Dónde enviamos tu propuesta personalizada?</h2>
+            <p>Un consultor de Nexus Flow analizará tus respuestas.</p>
+            <div class="opciones-grid" style="gap: 16px;">
+                <input type="text" id="nombre-empresa" placeholder="Nombre de tu empresa / Tu cargo" required />
+                <input type="email" id="email-contacto" placeholder="Correo electrónico corporativo" required />
+            </div>
+            <button class="btn-siguiente" onclick="finalizarQuiz()">Enviar Solicitud 🚀</button>
+        </div>
+    </div>
+
+    <script>
+        let datosProyecto = { servicio: '', presupuesto: '', empresa: '', email: '' };
+        let pasoActual = 1;
+
+        function seleccionarOpcion(paso, valor) {
+            if (paso === 1) {
+                datosProyecto.servicio = valor;
+                avanzarPaso(2, '66%');
+            } else if (paso === 2) {
+                datosProyecto.presupuesto = valor;
+                avanzarPaso(3, '100%');
+            }
+        }
+
+        function avanzarPaso(siguiente, porcentaje) {
+            document.getElementById(`paso${pasoActual}`).classList.remove('activo');
+            pasoActual = siguiente;
+            document.getElementById(`paso${pasoActual}`).classList.add('activo');
+            document.getElementById('progreso-quiz').style.width = porcentaje;
+        }
+
+        function finalizarQuiz() {
+            datosProyecto.empresa = document.getElementById('nombre-empresa').value.trim();
+            datosProyecto.email = document.getElementById('email-contacto').value.trim();
+
+            if (!datosProyecto.empresa || !datosProyecto.email) {
+                alert('Por favor, rellena todos los campos de contacto.');
+                return;
+            }
+
+            console.log('Datos capturados listos para Webhook/CRM:', datosProyecto);
+            alert('¡Solicitud recibida! El equipo de Nexus Flow se pondrá en contacto contigo en menos de 24 horas.');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

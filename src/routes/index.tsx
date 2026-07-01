@@ -4,16 +4,16 @@ import { Hero } from "@/components/Hero";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Automata Systems — Automatizaciones Inteligentes y Web Premium" },
+      { title: "Nexus Flow — Cómo ayudamos a crecer tu negocio" },
       {
         name: "description",
         content:
-          "Agencia de IA premium. Automatizaciones inteligentes, integraciones con APIs y CRM, y desarrollo de webs de alto rendimiento para empresas.",
+          "Eliminamos el trabajo manual con automatizaciones y webs premium. Menos fricción, más clientes.",
       },
-      { property: "og:title", content: "Automata Systems" },
+      { property: "og:title", content: "Nexus Flow" },
       {
         property: "og:description",
-        content: "Automatizaciones Inteligentes y Web Premium para Empresas.",
+        content: "Automatizaciones y Web Premier para equipos que quieren crecer.",
       },
     ],
   }),

@@ -3,11 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Automatizaciones", href: "#automatizaciones" },
-  { label: "Web Premium", href: "#web-premium" },
-  { label: "Portafolio", href: "#portafolio" },
-  { label: "Blog", href: "#blog" },
+  { label: "Inicio", href: "/" },
+  { label: "Cómo Ayudamos", href: "/como-ayudamos" },
+  { label: "Nuestros Servicios", href: "/nuestros-servicios" },
+  { label: "Ver Demo", href: "/ver-demo" },
 ];
 
 export function Navbar() {
@@ -77,7 +76,7 @@ export function Navbar() {
         </ul>
 
         <a
-          href="#contacto"
+          href="/empezar-proyecto"
           className="hidden md:inline-flex items-center px-5 py-2 rounded-full border border-gold/60 text-gold text-sm font-medium hover:bg-gold/10 hover:gold-glow transition-all duration-300"
         >
           Contacto
@@ -113,7 +112,7 @@ export function Navbar() {
                 </li>
               ))}
               <a
-                href="#contacto"
+                href="/empezar-proyecto"
                 onClick={() => setOpen(false)}
                 className="mt-2 inline-flex justify-center items-center px-5 py-2.5 rounded-full border border-gold/60 text-gold font-medium"
               >

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecosistema de Soluciones | Nexus Flow</title>
+    <style>
+        body {
+            background: #050a12;
+            color: #ffffff;
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 60px 20px;
+        }
+
+        .wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        header h1 {
+            font-size: clamp(2.8rem, 4vw, 3.8rem);
+            line-height: 1.05;
+            margin: 0;
+        }
+
+        header h1 span {
+            color: #bfa054;
+        }
+
+        header p {
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 1rem;
+            max-width: 760px;
+            margin: 20px auto 0;
+            line-height: 1.8;
+        }
+
+        .section-block {
+            margin-bottom: 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .section-block.reverse {
+            direction: rtl;
+        }
+
+        .section-block.reverse .info-side {
+            direction: ltr;
+        }
+
+        .info-side h2 {
+            color: #bfa054;
+            font-size: clamp(2rem, 2.6vw, 2.6rem);
+            margin-bottom: 18px;
+        }
+
+        .info-side p {
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.75;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .visual-side {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(191, 160, 84, 0.15);
+            height: 300px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.35);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: #bfa054;
+            background: rgba(191, 160, 84, 0.05);
+        }
+
+        .project-info {
+            padding: 22px;
+        }
+
+        .project-info h4 {
+            margin: 0 0 10px 0;
+            color: #ffffff;
+            font-size: 1.1rem;
+        }
+
+        .project-info span {
+            color: #bfa054;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.07);
+            margin: 40px 0;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 40px 16px;
+            }
+
+            .section-block {
+                grid-template-columns: 1fr;
+            }
+
+            .section-block.reverse {
+                direction: ltr;
+            }
+
+            .visual-side {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Ecosistema <span>Nexus Flow</span></h1>
+            <p>Ingeniería de software avanzada y automatización inteligente aplicada a negocios B2B. Un ecosistema visual premium con flujos de trabajo construidos para capturar clientes cualificados.</p>
+        </header>
+
+        <section class="section-block" id="automatizaciones">
+            <div class="info-side">
+                <h2>Integraciones IA & Automatización</h2>
+                <p>Conectamos tus canales de comunicación nativos (WhatsApp, Instagram, Web, CRM) con modelos de lenguaje entrenados sobre el ADN de tu negocio. Eliminamos tareas repetitivas y lanzamos flujos de agendamiento autónomos 24/7.</p>
+            </div>
+            <div class="visual-side">Core Motor IA UI</div>
+        </section>
+
+        <section class="section-block reverse" id="web-premier">
+            <div class="info-side">
+                <h2>Desarrollo Web Premier</h2>
+                <p>Diseñamos infraestructuras web premium a medida sin plantillas sobrecargadas. Optimizamos retención de usuarios y construimos embudos visuales orientados a transformar tráfico B2B cualificado en clientes potenciales.</p>
+            </div>
+            <div class="visual-side">Render Arquitectura Web</div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <section id="portafolio">
+            <h2 style="color: #bfa054; text-align: center; font-size: 2rem; margin-bottom: 28px;">Portafolio Selecto</h2>
+            <div class="portfolio-grid">
+                <div class="project-card">
+                    <div class="visual-side" style="height: 180px;">Caso Real Alpha</div>
+                    <div class="project-info">
+                        <span>Automatización Inmobiliaria</span>
+                        <h4>Sistema de Calificación Automatizado</h4>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="visual-side" style="height: 180px;">Caso Real Beta</div>
+                    <div class="project-info">
+                        <span>E-Commerce / SAAS</span>
+                        <h4>Web Premier Con Pasarela de Pago IA</h4>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="visual-side" style="height: 180px;">Caso Real Gamma</div>
+                    <div class="project-info">
+                        <span>Automatización de Ventas</span>
+                        <h4>Embudo Dinámico para Leads Cualificados</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
